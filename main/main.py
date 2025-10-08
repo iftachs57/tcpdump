@@ -1,8 +1,4 @@
-from actions.basic_actions import GetPackets, CountSrcIP, FinishingReport
+from actions.main_menu import Start
 
 if __name__=='__main__':
-    pcklst = GetPackets(r'C:\Users\Navot Shiener\Desktop\test2.pcap')
-    dirpck = CountSrcIP(pcklst)
-    FinishingReport(pcklst)
-    #for packet in stream:
-    #    GetIP(packet)
+    Start()
