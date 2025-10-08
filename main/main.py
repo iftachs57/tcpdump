@@ -1,8 +1,8 @@
-from actions.basic_actions import GetPackets
-
-
-
-
+from actions.basic_actions import GetPackets, CountSrcIP, FinishingReport
 
 if __name__=='__main__':
-    GetPackets(r'C:\Users\Jupiter\Desktop\test2.pcap')
+    pcklst = GetPackets(r'C:\Users\Navot Shiener\Desktop\test2.pcap')
+    dirpck = CountSrcIP(pcklst)
+    FinishingReport(pcklst)
+    #for packet in stream:
+    #    GetIP(packet)
