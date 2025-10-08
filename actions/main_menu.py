@@ -1,6 +1,6 @@
 import os
 
-from actions.basic_actions import report, save_to_pc, pck_lists, convert_pck_to_dict, ip_count
+from actions.basic_actions import report, save_to_pc, pck_lists, convert_pck_to_dict, ip_count, clear_console
 from consts import consts
 
 ### Starts the interactive command-line interface for the packet analysis tool.
@@ -9,7 +9,7 @@ def start():
     running = True
     file_path = ""
     while running:
-        os.system('cls' if os.name == 'nt' else 'clear')
+        clear_console()
         print(consts.Main_Menu)
         usrinp = input()
 
@@ -17,7 +17,7 @@ def start():
         if usrinp == "1":
             print(consts.Enter_File_Location)
             file_path = input()
-            os.system('cls' if os.name == 'nt' else 'clear')
+            clear_console()
 
         # Option 2: Show report for current file
         elif usrinp == "2":
@@ -25,12 +25,12 @@ def start():
                 report(file_path)
                 print(consts.Press)
                 input()
-                os.system('cls' if os.name == 'nt' else 'clear')
+                clear_console()
             else:
                 print(consts.Not_File_Path)
                 print(consts.Press)
                 input()
-                os.system('cls' if os.name == 'nt' else 'clear')
+                clear_console()
 
         # Option 3: Save packet data and IP stats to JSON
         elif usrinp == "3":
@@ -45,7 +45,7 @@ def start():
                 save_to_pc(saving_path, files_name, data, count)
                 print(consts.Press)
                 input()
-                os.system('cls' if os.name == 'nt' else 'clear')
+                clear_console()
             else:
                 print(consts.Not_File_Path)
                 print(consts.Press)

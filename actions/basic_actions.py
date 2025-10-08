@@ -9,7 +9,7 @@ from structs.basic_structs import Packet
 
 
 ### Ensures that an asyncio event loop is available in the current thread; creates one if necessary.
-def _ensure_event_loop():
+def _ensure_event_loop() -> None:
     try:
         asyncio.get_running_loop()
     except RuntimeError:
@@ -99,7 +99,7 @@ def ip_count(pcklist: list[Packet]) -> dict[str, int]:
 
 
 ### Prints a formatted report of packet details and IP appearance counts.
-def finished_report(pcklist: list[Packet], count: dict[str, int]):
+def finished_report(pcklist: list[Packet], count: dict[str, int]) -> None:
     for pck in pcklist:
         output = consts.Output_Report.format(
             pck.Num,
@@ -135,7 +135,7 @@ def convert_pck_to_dict(pcklist: list[Packet], errlist: list) -> dict[int, dict]
 
 
 ### Saves packet data and IP count summary to a JSON file in the specified location.
-def save_to_pc(file_location: str, files_name: str, data: dict[int, dict], count: dict[str, int]):
+def save_to_pc(file_location: str, files_name: str, data: dict[int, dict], count: dict[str, int]) -> None:
     path = os.path.expanduser(file_location)
     os.makedirs(path, exist_ok=True)
     full_path = os.path.join(path, files_name)
@@ -152,7 +152,7 @@ def save_to_pc(file_location: str, files_name: str, data: dict[int, dict], count
 
 
 ### Wrapper function that retrieves packets and errors from a file, with type checks and fallbacks.
-def pck_lists(file_location: str):
+def pck_lists(file_location: str) -> tuple[list[Packet], list]:
     output = get_packets(file_location)
     if not isinstance(output, dict):
         return [], [f"unexpected producer type: {type(output).__name__}"]
@@ -168,7 +168,11 @@ def pck_lists(file_location: str):
 
 
 ### Main pipeline to extract, analyze, and print packet info and IP counts from a PCAP file.
-def report(file_location: str):
+def report(file_location: str) -> None:
     pcklst, errlst = pck_lists(file_location)
     count = ip_count(pcklst)
     finished_report(pcklst, count)
+
+
+def clear_console() -> None:
+    os.system('cls' if os.name == 'nt' else 'clear')
