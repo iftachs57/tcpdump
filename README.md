@@ -9,45 +9,14 @@ It allows you to:
 
 ---
 
-##Project Structure
-
-```
-project/
-│
-├── main.py
-├── actions/
-│   ├── main_menu.py
-│   └── basic_actions.py
-├── consts/
-│   └── consts.py
-├── structs/
-│   └── basic_structs.py
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## Installation
 
-### 1. Clone or download the project
+### Install dependencies
 
 ```bash
-git clone https://github.com/iftachs57/tcpdump.git
-```
 
-### 2. Set up a virtual environment (recommended)
-
-```bash
-python -m venv venv
-source venv/bin/activate     # on Linux/macOS
-venv\Scripts\activate        # on Windows
-```
-
-### 3. Install dependencies
-
-```bash
 pip install -r requirements.txt
+
 ```
 
 ## Usage
@@ -55,7 +24,9 @@ pip install -r requirements.txt
 Run the program from the root directory:
 
 ```bash
+
 python main.py
+
 ```
 
 You’ll see an interactive menu:
@@ -77,8 +48,7 @@ Generates a console report with:
 * Packet number
 * Timestamp
 * Source/Destination IPs and ports
-* Protocol
-  Plus, a summary of IP appearance counts.
+* Protocol, Plus, a summary of IP appearance counts.
 
 ### Export to JSON
 
@@ -112,39 +82,6 @@ The generated JSON includes:
 
 ---
 
-## Core Modules Overview
-
-### `main.py`
-
-Entry point of the program. Starts the interactive main menu.
-
-### `actions/main_menu.py`
-
-Handles user input and the CLI workflow:
-
-* Displays menu
-* Processes user choices
-* Invokes functions from `basic_actions`
-
-### `actions/basic_actions.py`
-
-Contains the core logic:
-
-* Reads packets using **PyShark**
-* Validates supported protocols (TCP, UDP, ICMP, TLS, DNS)
-* Extracts ports, IPs, timestamps
-* Generates reports and JSON exports
-
-### `consts/consts.py`
-
-Holds reusable constants, strings, and supported protocol definitions.
-
-### `structs/basic_structs.py`
-
-Defines the **Packet** model using **Pydantic** for structured data handling.
-
----
-
 ## Supported Protocols
 
 | Protocol | Source Accessor                   | Destination Accessor              |
@@ -170,8 +107,6 @@ ___________________________________________
 IP - 192.168.1.10 ,appeared - 5 times
 IP - 192.168.1.20 ,appeared - 5 times
 ```
-
----
 
 ## Notes
 
