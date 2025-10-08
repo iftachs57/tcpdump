@@ -1,5 +1,3 @@
-from optparse import Option
-
 from pydantic import BaseModel
 
 
@@ -11,7 +9,6 @@ class Packet(BaseModel):
     SourcePort: str | None
     DestinationPort: str | None
     Protocol: str | None
-
 
     def __init__(self, **data) -> None:
         super().__init__(**data)
