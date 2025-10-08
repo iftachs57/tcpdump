@@ -31,17 +31,6 @@ Output_Report = """
             ___________________________________________
             """
 
-Error_Output = """
-            ___________________________________________
-            Line {} unsupported protocol
-            Packet type {}
-            ___________________________________________
-            """
-
-Protocol = "ip"
-IP_Version = "4"
-IP_Field = "version"
-
 Output = "PckList"
 Errors = "Errors"
 
@@ -59,3 +48,5 @@ Saving_Location = "Please enter your saving location"
 Enter_Files_Name = "give a name to your file:"
 Not_File_Path = "you didnt add file path"
 Press = "press enter to continue"
+IPCount = "IP - {} ,appeared - {} times"
+GetPacketF = "GetPackets failed for {}"
