@@ -176,7 +176,8 @@ IP - 192.168.1.20 ,appeared - 5 times
 ## Notes
 
 * Non-IPv4 packets and unsupported protocols are logged as errors.
-* If a packet is missing fields (timestamp, ports, IPs), a console message is printed.
+* If a packet is missing fields (timestamp, ports, IPs) a console message is printed.
 * JSON export automatically creates the target folder if it doesn’t exist.
-* working with pcap and pcapng files (must common tcpdump files)
+* Working with pcap and pcapng files (must common tcpdump files)
+* Everything is in the consts file instead of an config.json file, for easier use and, "out-of-the-box" product
 
